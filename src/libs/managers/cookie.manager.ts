@@ -1,5 +1,5 @@
 
-// Establecemos una cookie con un nombre y un valor
+// Establecemos la cookie
 export const setCookie = (cname: string, cvalue: string, exdays: number) => {
   const d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
