@@ -1,3 +1,4 @@
+import { Themes } from "@/constants/themes";
 import { ThemeContext } from "@/contexts/theme.context";
 import { useContext } from "react";
 
@@ -20,10 +21,10 @@ export function useTheme(): ThemeHook {
 
     // Funcion para cambiar el tema
     const toggleTheme = () => {
-        if (theme === "light") {
-            setTheme("dark");
+        if (theme === Themes.Light) {
+            setTheme(Themes.Dark);
         } else {
-            setTheme("light");
+            setTheme(Themes.Light);
         }
     }
 

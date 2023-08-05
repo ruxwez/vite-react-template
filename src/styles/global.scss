@@ -1,7 +1,7 @@
 body {
     background-color: var(--bgp);
 
-    &.ligth {
+    &.Ligth {
         --bgp: white;
         --bgs: black;
     
@@ -9,7 +9,7 @@ body {
         --cs: red;
     }
 
-    &.dark {
+    &.Dark {
         --bgp: black;
         --bgs: white;
     

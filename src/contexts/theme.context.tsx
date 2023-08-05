@@ -1,4 +1,5 @@
 import { LocalStorageKeys } from '@/constants/LocalStorageKeys'
+import { Themes } from '@/constants/themes'
 import { createContext, useEffect, useState } from 'react'
 
 interface ThemeContextProps {
@@ -15,8 +16,11 @@ export const ThemeContext = createContext<ThemeContextState | undefined>(undefin
 
 // Creamos el ThemeProvider
 export const ThemeProvider = (props: ThemeContextProps) => {
+
+    const DefaultTheme = Themes.Light
+
     // Obtenemos el tema del localStorage o ponemos el por defecto
-    const [theme, setT] = useState(window.localStorage.getItem('theme') || 'light')
+    const [theme, setT] = useState(window.localStorage.getItem('theme') || DefaultTheme)
     
     // Cambiamos el tema del body dependiendo del tema
     useEffect(() => {
@@ -25,8 +29,15 @@ export const ThemeProvider = (props: ThemeContextProps) => {
 
     // Funcion para cambiar el tema
     const setTheme = (theme: string) => {
-        setT(theme)
-        localStorage.setItem(LocalStorageKeys.Theme, theme)
+        
+        if (theme in Themes) {
+            setT(theme)
+            localStorage.setItem(LocalStorageKeys.Theme, theme)
+        } else {
+            setT(DefaultTheme)
+            localStorage.setItem(LocalStorageKeys.Theme, DefaultTheme)
+        }
+        
     }
 
     return <ThemeContext.Provider value={{
