@@ -4,23 +4,25 @@ interface ThemeContextProps {
     children: React.ReactNode
 }
 
-export const ThemeContext = createContext({})
+interface ThemeContextState {
+    theme: string
+    setTheme: (theme: string) => void
+}
+
+export const ThemeContext = createContext<ThemeContextState | undefined>(undefined)
 
 export const ThemeProvider = (props: ThemeContextProps) => {
-    const [theme, setTheme] = useState('light')
-
-    useEffect(() => {
-        const localTheme = window.localStorage.getItem('theme')
-
-        // En el caso de existir un tema en el localStorage, se establece como tema actual
-        if(localTheme) {
-            setTheme(localTheme)
-        }
-    }, [])
+    const [theme, setT] = useState(window.localStorage.getItem('theme') || 'light')
 
     useEffect(() => {
         document.body.className = theme
     }, [theme])
+
+    const setTheme = (theme: string) => {
+        setT(theme)
+        localStorage.setItem("theme", theme)
+    }
+   
 
     return <ThemeContext.Provider value={{
         theme,

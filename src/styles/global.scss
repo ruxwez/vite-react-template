@@ -1,9 +1,20 @@
-:root {
+body {
+    background-color: var(--bgp);
 
-    --bgp: white;
-    --bgs: black;
+    &.ligth {
+        --bgp: white;
+        --bgs: black;
+    
+        --cp: blue;
+        --cs: red;
+    }
 
-    --cp: blue;
-    --cs: red;
+    &.dark {
+        --bgp: black;
+        --bgs: white;
+    
+        --cp: blue;
+        --cs: red;
+    }
 
 }
