@@ -1,6 +1,2 @@
-export {
-  getAuthToken,
-  removeAuthToken,
-  setAuthToken,
-} from "./authToken.manager";
-export { getCookie, setCookie } from "./cookie.manager";
+export * from "./authToken.manager";
+export * from "./cookie.manager";
