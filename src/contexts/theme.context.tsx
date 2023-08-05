@@ -1,4 +1,4 @@
-import { LocalStorageKeys } from '@/constants/LocalStorageKeys'
+import { LocalStorageKeys } from '@/constants/localStorageKeys'
 import { Themes } from '@/constants/themes'
 import { createContext, useEffect, useState } from 'react'
 

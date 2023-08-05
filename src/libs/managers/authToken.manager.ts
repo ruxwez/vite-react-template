@@ -1,4 +1,4 @@
-import { LocalStorageKeys } from "@/constants/LocalStorageKeys";
+import { LocalStorageKeys } from "@/constants/localStorageKeys";
 
 // Obtenemos el token de autenticación desde el LocalStorage
 export const getAuthToken = (): string | null => {
