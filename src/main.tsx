@@ -1,13 +1,8 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { GlobalRoutes } from './routes'
-import { GlobalContexts } from './contexts'
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router";
+import { router } from "@/routes";
+import "@/styles/global.css";
 
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <GlobalContexts> 
-      <GlobalRoutes />
-    </GlobalContexts>
-  </StrictMode>,
-)
+createRoot(document.getElementById("root")!).render(
+  <RouterProvider router={router} />,
+);
